@@ -165,7 +165,7 @@ h1 {
     <div class="body">
       <dl class="stack">
         <div class="row"><dt>Backend</dt><dd><ul class="tags"><li>Go</li><li>PostgreSQL</li><li>SQL</li><li>REST API</li></ul></dd></div>
-        <div class="row"><dt>Frontend</dt><dd><ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript без фреймворков</li></ul></dd></div>
+        <div class="row"><dt>Frontend</dt><dd><ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript без фреймворков</li><li>Fetch API</li><li>History API</li><li>Stripe.js</li><li>Cloudflare Turnstile</li></ul></dd></div>
         <div class="row"><dt>Инструменты</dt><dd><ul class="tags"><li>Git</li><li>Cloudflare Workers</li><li>Stripe</li><li>Python</li><li>Claude Code</li><li>Codex</li></ul></dd></div>
       </dl>
     </div>
@@ -179,13 +179,14 @@ h1 {
         <div class="meta"><span>Интернет-магазин одежды</span><span class="status live">Работает, принимает оплату</span></div>
         <p>Магазин streetwear-бренда из Марбельи (Испания) с онлайн-оплатой.</p>
         <ul class="points">
+          <li>Фронтенд без фреймворков: встроенная форма оплаты Stripe, переходы между разделами без перезагрузки (History API), запросы к своему API через fetch, модальные окна на &lt;dialog&gt;, адаптивные картинки WebP со srcset и lazy loading</li>
           <li>Серверная часть на Cloudflare Workers: оплата через Stripe Checkout, письма о заказах</li>
           <li>Рассылка на двух языках и уведомления «снова в наличии» через Brevo</li>
           <li>Клуб покупателей на SQL-базе (Cloudflare D1); страница заказов для персонала закрыта через Cloudflare Access</li>
           <li>Защита: антибот Turnstile и лимит запросов на формах, строгий Content-Security-Policy и заголовки безопасности</li>
           <li>Два языка (EN / ES) и SEO: структурированные данные, hreflang, sitemap</li>
         </ul>
-        <ul class="tags" aria-label="Стек проекта"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Cloudflare Workers</li><li>D1</li><li>Stripe</li><li>Brevo</li></ul>
+        <ul class="tags" aria-label="Стек проекта"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Cloudflare Workers</li><li>D1</li><li>Stripe</li><li>Brevo</li><li>Turnstile</li></ul>
       </article>
 
       <article class="project">
