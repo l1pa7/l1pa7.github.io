@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Александр Липатов — Junior Full-stack (Go)</title>
+<meta name="description" content="Резюме: Junior Full-stack разработчик с упором на backend на Go и PostgreSQL. Проекты, стек, контакты.">
+<meta property="og:title" content="Александр Липатов — Junior Full-stack (Go)">
+<meta property="og:description" content="Backend на Go и PostgreSQL, frontend на HTML, CSS и JavaScript. Проекты: scope-house.com, vesper.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://l1pa7.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&family=Golos+Text:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one CV sheet; on wide screens section names sit in a narrow left column, content on the right; on phones they stack. */
+:root {
+  --bg: #F5F7F8;
+  --sheet: #FFFFFF;
+  --fg: #13181C;
+  --muted: #56626C;
+  --line: #DDE3E7;
+  --accent: #00708C;        /* Go's blue, darkened to read as text on white */
+  --tag-bg: #EAF3F6;
+  --live: #1E8A4C;
+  --display: "Geologica", "Golos Text", system-ui, sans-serif;
+  --body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0D1114; --sheet: #141A1E; --fg: #E6EBEE; --muted: #97A4AE; --line: #263038;
+    --accent: #5CC9E6; --tag-bg: #17262D; --live: #4CC27F; color-scheme: dark;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 16px/1.6 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 56px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+.sheet {
+  max-width: 820px;
+  margin: 0 auto;
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: clamp(24px, 5vw, 48px);
+  display: grid;
+  gap: 36px;
+}
+
+/* ---- the head: name, role, contacts */
+.head { display: grid; gap: 12px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.role {
+  margin: 0;
+  font: 500 13px/1.4 var(--mono);
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+h1 {
+  margin: 0;
+  font: 600 clamp(26px, 4.2vw, 34px)/1.15 var(--display);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.contacts { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.contacts li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; min-width: 0; }
+.contacts .k { color: var(--muted); font-size: 14px; }
+.mail { font-family: var(--mono); font-size: 14px; white-space: nowrap; }
+.copy {
+  font: 500 12px/1 var(--body);
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 9px;
+  cursor: pointer;
+  align-self: center;
+}
+.copy:hover { border-color: var(--accent); }
+
+/* ---- sections: the name on the left, content on the right */
+.sec { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 8px 28px; }
+.sec > h2 {
+  margin: 0;
+  font: 500 12px/2 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.sec > .body { min-width: 0; display: grid; gap: 28px; }
+
+/* stack rows */
+.stack { margin: 0; display: grid; gap: 12px; }
+.stack .row { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 4px 16px; align-items: baseline; }
+.stack dt { font-weight: 500; }
+.stack dd { margin: 0; min-width: 0; }
+.tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tags li {
+  font: 400 13px/1 var(--mono);
+  background: var(--tag-bg);
+  border-radius: 4px;
+  padding: 6px 8px;
+}
+
+/* projects */
+.project { display: grid; gap: 10px; }
+.project + .project { padding-top: 28px; border-top: 1px solid var(--line); }
+.project h3 { margin: 0; font: 600 19px/1.3 var(--display); }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: 14px; color: var(--muted); }
+.status { display: inline-flex; align-items: center; gap: 6px; }
+.status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+.status.live { color: var(--live); }
+.status.live::before { background: var(--live); }
+.project p { margin: 0; max-width: 62ch; }
+.project ul.points { margin: 0; padding-left: 1.15em; display: grid; gap: 6px; max-width: 64ch; }
+.project ul.points li::marker { color: var(--muted); }
+
+/* education */
+.edu { margin: 0; }
+.edu strong { font-weight: 500; }
+
+@media (max-width: 640px) {
+  body { padding-block: 16px 32px; }
+  .sec { grid-template-columns: minmax(0, 1fr); }
+  .stack .row { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .copy { transition: border-color .15s ease; }
+}
+@media print {
+  body { background: #fff; padding: 0; }
+  .sheet { border: 0; padding: 0; }
+  .copy { display: none; }
+}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header class="head">
+    <p class="role">Junior Full-stack · backend на Go</p>
+    <h1>Липатов Александр Андреевич</h1>
+    <ul class="contacts">
+      <li><span class="k">Telegram</span> <a href="https://t.me/l1pa7" target="_blank" rel="noopener">@l1pa7</a></li>
+      <li><span class="k">GitHub</span> <a href="https://github.com/l1pa7" target="_blank" rel="noopener">github.com/l1pa7</a></li>
+      <li><span class="k">Почта</span> <a class="mail" id="mail" href="mailto:alexlipalipatov@icloud.com">alexlipalipatov@icloud.com</a>
+        <button class="copy" id="copy-mail" type="button">Копировать</button></li>
+    </ul>
+  </header>
+
+  <section class="sec" aria-labelledby="h-stack">
+    <h2 id="h-stack">Стек</h2>
+    <div class="body">
+      <dl class="stack">
+        <div class="row"><dt>Backend</dt><dd><ul class="tags"><li>Go</li><li>PostgreSQL</li><li>SQL</li><li>REST API</li></ul></dd></div>
+        <div class="row"><dt>Frontend</dt><dd><ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript без фреймворков</li></ul></dd></div>
+        <div class="row"><dt>Инструменты</dt><dd><ul class="tags"><li>Git</li><li>Cloudflare Workers</li><li>Stripe</li><li>Python</li><li>Claude Code</li><li>Codex</li></ul></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-projects">
+    <h2 id="h-projects">Проекты</h2>
+    <div class="body">
+      <article class="project">
+        <h3><a href="https://scope-house.com" target="_blank" rel="noopener">scope-house.com</a></h3>
+        <div class="meta"><span>Интернет-магазин одежды</span><span class="status live">Работает, принимает оплату</span></div>
+        <p>Магазин streetwear-бренда из Марбельи (Испания) с онлайн-оплатой.</p>
+        <ul class="points">
+          <li>Серверная часть на Cloudflare Workers: оплата через Stripe Checkout, письма о заказах</li>
+          <li>Рассылка на двух языках и уведомления «снова в наличии» через Brevo</li>
+          <li>Клуб покупателей на SQL-базе (Cloudflare D1); страница заказов для персонала закрыта через Cloudflare Access</li>
+          <li>Защита: антибот Turnstile и лимит запросов на формах, строгий Content-Security-Policy и заголовки безопасности</li>
+          <li>Два языка (EN / ES) и SEO: структурированные данные, hreflang, sitemap</li>
+        </ul>
+        <ul class="tags" aria-label="Стек проекта"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Cloudflare Workers</li><li>D1</li><li>Stripe</li><li>Brevo</li></ul>
+      </article>
+
+      <article class="project">
+        <h3><a href="https://vesper.vesper-preview.workers.dev" target="_blank" rel="noopener">vesper</a></h3>
+        <div class="meta"><span>Прототип магазина одежды на заказ</span><span class="status">Клиентский проект</span></div>
+        <p>Витрина коллекции с мобильной версией, сданная по итерациям.</p>
+        <ul class="points">
+          <li>Каталог, карточка товара и корзина на чистом HTML, CSS и JavaScript, адаптив под телефон</li>
+          <li>Поворот вещи на 360° из 16 фотографий пальцем, с инерцией; анимации на Canvas и WebGL</li>
+          <li>Python-скрипты обработки фото: вырезание фона, цветокоррекция, выравнивание ракурсов</li>
+          <li>Автодеплой на Cloudflare Workers при каждом push в main; видео отдаётся по частям (HTTP Range)</li>
+          <li>Рекламные ролики для соцсетей, собранные кодом: Canvas, WebCodecs, Web Audio</li>
+        </ul>
+        <ul class="tags" aria-label="Стек проекта"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>WebGL</li><li>Python</li><li>Node.js</li><li>Cloudflare Workers</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-edu">
+    <h2 id="h-edu">Образование</h2>
+    <div class="body">
+      <p class="edu"><strong>Московский Политех</strong> — 2 курс, направление «Веб-разработка с использованием ИИ»</p>
+    </div>
+  </section>
+</main>
+
+<script>
+  // Copy the email; where the browser refuses, select the address instead.
+  const btn = document.getElementById("copy-mail"), mail = document.getElementById("mail");
+  const flash = text => { btn.textContent = text; setTimeout(() => { btn.textContent = "Копировать"; }, 1600); };
+  btn.addEventListener("click", () => {
+    const select = () => { const r = document.createRange(); r.selectNodeContents(mail); const s = getSelection(); s.removeAllRanges(); s.addRange(r); flash("Выделено"); };
+    try { navigator.clipboard.writeText(mail.textContent.trim()).then(() => flash("Скопировано"), select); } catch { select(); }
+  });
+</script>
+</body>
+</html>
